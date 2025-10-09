@@ -1,0 +1,1 @@
+<img src="{{ asset('images/3er logo Vodelem.png') }}" alt="Inventarios Logo" {{ $attributes }}>
