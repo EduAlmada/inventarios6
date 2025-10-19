@@ -30,6 +30,7 @@
                     @endif
                     <a href="{{ route('actividades.index') }}" class="block px-4 py-2 hover:bg-gray-700 rounded-md">Actividades</a>
                     <a href="{{ route('stock.index') }}" class="block px-4 py-2 hover:bg-gray-700 rounded-md">Stock</a>
+                    <a href="{{ route('notas.index') }}" class="block px-4 py-2 hover:bg-gray-700 rounded-md">Pedidos</a>
                 </nav>
             </aside>
 

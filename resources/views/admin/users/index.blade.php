@@ -26,6 +26,10 @@
                                     <th class="px-6 py-3 bg-gray-50 text-left text-xs font-medium text-gray-500 uppercase tracking-wider">
                                         Administrador
                                     </th>
+                                    {{-- NUEVA COLUMNA --}}
+                                    <th class="px-6 py-3 bg-gray-50 text-right text-xs font-medium text-gray-500 uppercase tracking-wider">
+                                        Acciones
+                                    </th>
                                 </tr>
                             </thead>
                             <tbody class="bg-white divide-y divide-gray-200">
@@ -39,6 +43,12 @@
                                         </td>
                                         <td class="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                                             {{ $user->is_admin ? 'Sí' : 'No' }}
+                                        </td>
+                                        {{-- BOTÓN DE EDICIÓN --}}
+                                        <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
+                                            <a href="{{ route('admin.users.edit', $user) }}" class="text-indigo-600 hover:text-indigo-900">
+                                                Editar
+                                            </a>
                                         </td>
                                     </tr>
                                 @endforeach
