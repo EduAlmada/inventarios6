@@ -11,15 +11,28 @@
                 <div class="p-6 bg-white border-b border-gray-200">
                     
                     <h3 class="text-lg font-medium text-gray-900 mb-4">
-                        Lista de Notas de Venta
+                        Lista de Pedidos
                     </h3>
                     
                     {{-- Contenedor para acciones --}}
                     <div class="mb-4 flex justify-between items-center">
                         
                         {{-- Aquí irán los filtros si los agregas --}}
-                        <div>
-                            {{-- Puedes poner aquí un formulario de filtro de estado/fecha --}}
+                        <div>                                                    {{-- Filtro de búsqueda --}}
+                            <form action="{{ route('notas.index') }}" method="GET" class="flex items-center gap-2">
+                                <x-text-input 
+                                    type="text" 
+                                    name="buscar" 
+                                    placeholder="Buscar por número de nota..." 
+                                    value="{{ request('buscar') }}" 
+                                    class="w-64"
+                                />
+                                <x-primary-button>Buscar</x-primary-button>
+
+                                @if(request('buscar'))
+                                    <a href="{{ route('notas.index') }}" class="text-sm text-gray-500 hover:text-gray-700 ml-2">Limpiar</a>
+                                @endif
+                            </form>
                         </div>
 
                         {{-- Botón de IMPORTAR/CREAR --}}
@@ -50,8 +63,10 @@
                                             <td class="px-6 py-4">{{ $nota->cliente }}</td>
                                             <td class="px-6 py-4 font-bold">{{ $nota->estado }}</td>
                                             <td class="px-6 py-4">{{ $nota->user->name ?? 'Sistema' }}</td>
-                                            <td class="px-6 py-4 text-right">
-                                                <a href="{{ route('notas.edit', $nota) }}" class="text-green-600 hover:text-green-900">Editar</a>
+                                            <td class="px-6 py-4 text-right flex gap-2 justify-end">
+                                                <a href="{{ route('notas.edit', $nota) }}" class="px-3 text-red-600 hover:text-green-900">Editar</a>
+                                                <a href="{{ route('picking.show', $nota) }}" class="px-3 text-orange-500 hover:text-green-900">Picking</a>
+                                                <a href="{{ route('packing.show', $nota) }}" class="px-3 text-green-600 hover:text-green-900">Packing</a>
                                             </td>
                                         </tr>
                                     @endforeach

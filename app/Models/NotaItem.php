@@ -27,4 +27,9 @@ class NotaItem extends Model
     {
         return $this->belongsTo(Articulo::class);
     }
+
+    public function stock() {
+    // Opcional, para enlazar con la zona/stock desde el item
+    return $this->hasManyThrough(Stock::class, Articulo::class, 'id', 'articulo_id', 'articulo_id', 'id');
+    }
 }

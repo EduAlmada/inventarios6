@@ -24,7 +24,8 @@ class Stock extends Model
     
     public function deposito()
     {
-        return $this->belongsTo(Deposito::class);
+        return $this->hasOneThrough(Deposito::class, Zona::class, 'id', 'id', 'zona_id', 'deposito_id');
+        // hasOneThrough(Related, Through, throughKey, finalKey, localKey, secondLocalKey)
     }
 
     public function zona()

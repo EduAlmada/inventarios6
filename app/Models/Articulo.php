@@ -21,4 +21,14 @@ class Articulo extends Model
         'unidades',
         'precio',
     ];
+
+    public function zona()
+    {
+        return $this->belongsTo(Zona::class);
+    }
+
+    public function stocks()
+    {
+        return $this->hasMany(Stock::class);
+    }
 }

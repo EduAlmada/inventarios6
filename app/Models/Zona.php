@@ -16,9 +16,12 @@ class Zona extends Model
         'descripcion',
     ];
 
-    // Una zona pertenece a un depósito
     public function deposito()
     {
         return $this->belongsTo(Deposito::class);
+    }
+
+    public function stocks() {
+    return $this->hasMany(Stock::class);
     }
 }

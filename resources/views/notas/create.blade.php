@@ -23,16 +23,33 @@
                             <x-input-error :messages="$errors->get('archivo')" class="mt-2" />
                         </div>
 
-                        {{-- Mostrar errores generales, como fallos de validación del importador --}}
-                        @if ($errors->any())
-                            <div class="mt-4 text-red-600">
-                                <ul>
-                                    @foreach ($errors->all() as $error)
-                                        <li>{{ $error }}</li>
-                                    @endforeach
-                                </ul>
+
+
+                        @if (session('warning'))
+                            <div class="alert alert-warning">
+                                <p>{{ session('warning') }}</p>
+                                @if (session('import_errors'))
+                                    <ul>
+                                        @foreach (session('import_errors') as $error)
+                                            <li>{!! $error !!}</li>
+                                        @endforeach
+                                    </ul>
+                                @endif
                             </div>
                         @endif
+
+                        @if (session('success'))
+                            <div class="alert alert-success">
+                                {{ session('success') }}
+                            </div>
+                        @endif
+
+                        @if (session('error'))
+                            <div class="alert alert-danger">
+                                {{ session('error') }}
+                            </div>
+                        @endif
+
 
                         <div class="flex items-center justify-end mt-4">
                             <x-primary-button>

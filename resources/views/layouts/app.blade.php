@@ -27,6 +27,7 @@
                         <a href="{{ route('tipos.index') }}" class="block px-4 py-2 hover:bg-gray-700 rounded-md">Tipos de Actividad</a>
                         <a href="{{ route('depositos.index') }}" class="block px-4 py-2 hover:bg-gray-700 rounded-md">Depósitos</a>
                         <a href="{{ route('zonas.index') }}" class="block px-4 py-2 hover:bg-gray-700 rounded-md">Zonas</a>
+                        <a href="{{ route('monitor.index') }}" class="block px-4 py-2 hover:bg-gray-700 rounded-md">Monitor de Pedidos</a>
                     @endif
                     <a href="{{ route('actividades.index') }}" class="block px-4 py-2 hover:bg-gray-700 rounded-md">Actividades</a>
                     <a href="{{ route('stock.index') }}" class="block px-4 py-2 hover:bg-gray-700 rounded-md">Stock</a>
